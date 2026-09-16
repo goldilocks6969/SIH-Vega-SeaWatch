@@ -1,0 +1,263 @@
+.conversation-intelligence { pointer-events: none; }
+
+.conversation-field,
+.conversation-contour,
+.conversation-time-arrow,
+.conversation-cyclone-corridor,
+.conversation-cyclone-approach,
+.conversation-coastal-influence,
+.conversation-vessel-route,
+.conversation-vessel-ahead,
+.conversation-intelligence .marine-measurement,
+.conversation-note {
+  opacity: 0;
+  transition: opacity var(--motion-intelligence-recede) var(--ease-out), filter var(--motion-intelligence-recede) var(--ease-out);
+}
+
+.conversation-field,
+.conversation-coastal-influence,
+.conversation-vessel-ahead { stroke: none; }
+
+.conversation-field--favorable,
+.conversation-vessel-ahead { fill: var(--color-opportunity-field); }
+.conversation-field--caution { fill: rgba(181, 128, 62, 0.11); }
+.conversation-field--wave-risk { fill: rgba(193, 121, 91, 0.13); }
+.conversation-field--wave-risk-secondary { fill: rgba(181, 128, 62, 0.085); }
+
+.conversation-contour,
+.conversation-time-arrow,
+.conversation-cyclone-approach,
+.conversation-vessel-route {
+  fill: none;
+  stroke: rgba(239, 245, 240, 0.7);
+  stroke-linecap: round;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.conversation-contour,
+.conversation-cyclone-approach,
+.conversation-vessel-route {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+
+.conversation-contour--risk { stroke: rgba(234, 198, 160, 0.76); }
+.conversation-time-arrow { stroke: rgba(234, 198, 160, 0.72); stroke-dasharray: 3 8; }
+
+.conversation-note text {
+  fill: rgba(38, 50, 56, 0.65);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: var(--weight-medium);
+}
+
+.conversation-note circle { fill: var(--color-caution); }
+.conversation-note--strong circle { fill: var(--color-opportunity); }
+
+.conversation-cyclone-corridor {
+  fill: none;
+  stroke: rgba(201, 108, 98, 0.09);
+  stroke-linecap: round;
+  stroke-width: 30;
+  vector-effect: non-scaling-stroke;
+}
+
+.conversation-cyclone-approach {
+  stroke: rgba(246, 245, 241, 0.68);
+  stroke-dasharray: 3 8;
+  stroke-dashoffset: 0;
+}
+
+.conversation-coastal-influence { fill: rgba(193, 121, 91, 0.065); filter: blur(7px); }
+.conversation-vessel-route { stroke-dasharray: 4 7; stroke-dashoffset: 0; }
+.conversation-vessel-ahead { filter: blur(4px); }
+
+.conversation-intelligence--has-base .conversation-field,
+.conversation-intelligence--has-base .conversation-cyclone-corridor,
+.conversation-intelligence--has-base .conversation-vessel-route,
+.conversation-intelligence--has-base .conversation-vessel-ahead {
+  opacity: 1;
+  animation: seawatch-field-emerge 900ms var(--ease-out) both;
+}
+
+.conversation-intelligence--has-expanded .conversation-contour,
+.conversation-intelligence--has-expanded .conversation-time-arrow,
+.conversation-intelligence--has-expanded .conversation-cyclone-approach,
+.conversation-intelligence--has-expanded .conversation-coastal-influence,
+.conversation-intelligence--has-expanded .marine-measurement,
+.conversation-intelligence--has-expanded .conversation-note { opacity: 1; }
+
+.conversation-intelligence--has-expanded .conversation-contour { animation: seawatch-contour-draw 950ms var(--ease-out) both; }
+.conversation-intelligence--has-expanded .conversation-time-arrow,
+.conversation-intelligence--has-expanded .conversation-cyclone-approach,
+.conversation-intelligence--has-expanded .conversation-vessel-route { animation: seawatch-evidence-resolve 850ms var(--ease-out) both; }
+.conversation-intelligence--has-expanded .marine-measurement,
+.conversation-intelligence--has-expanded .conversation-note,
+.conversation-intelligence--has-expanded .conversation-coastal-influence { animation: seawatch-field-emerge 700ms var(--ease-out) both; }
+
+.conversation-intelligence--settled .marine-measurement,
+.conversation-intelligence--settled .conversation-note,
+.conversation-intelligence--settled .conversation-time-arrow { opacity: 0; transition-duration: 400ms; }
+.conversation-intelligence--settled .conversation-contour,
+.conversation-intelligence--settled .conversation-cyclone-approach,
+.conversation-intelligence--settled .conversation-vessel-route { opacity: 0.3; transition-delay: 100ms; transition-duration: 550ms; }
+.conversation-intelligence--settled .conversation-field,
+.conversation-intelligence--settled .conversation-coastal-influence,
+.conversation-intelligence--settled .conversation-vessel-ahead,
+.conversation-intelligence--settled .conversation-cyclone-corridor { opacity: 0.55; }
+
+.object-inspector {
+  position: absolute;
+  z-index: 6;
+  width: 286px;
+  padding: 20px 20px 18px 22px;
+  border: 0;
+  border-left: 2px solid rgba(246, 245, 241, 0.78);
+  border-radius: 0 14px 14px 0;
+  color: var(--color-text-primary);
+  background: rgba(246, 245, 241, 0.87);
+  box-shadow: 0 20px 50px rgba(38, 50, 56, 0.105);
+  backdrop-filter: blur(11px);
+  animation: seawatch-inspector-in 320ms var(--ease-out) both;
+}
+
+.object-inspector--vessel { top: 27%; left: max(31vw, 360px); }
+.object-inspector--fishing-zone { top: 28%; left: max(42vw, 520px); }
+.object-inspector__leader {
+  position: absolute;
+  right: 100%;
+  bottom: 22px;
+  width: 82px;
+  border-top: 1px solid rgba(246, 245, 241, 0.7);
+  transform: rotate(-22deg);
+  transform-origin: right;
+}
+.object-inspector--fishing-zone .object-inspector__leader { right: auto; left: 100%; width: 94px; transform: rotate(23deg); transform-origin: left; }
+.object-inspector--vessel .object-inspector__leader { right: auto; left: 100%; width: 220px; transform: rotate(6deg); transform-origin: left; }
+.object-inspector header,
+.object-inspector footer { display: flex; align-items: flex-start; justify-content: space-between; }
+.object-inspector h2,
+.object-inspector p,
+.object-inspector dl,
+.object-inspector dd { margin: 0; }
+.object-inspector__eyebrow { color: var(--color-text-muted); font-size: 10px; font-weight: var(--weight-medium); }
+.object-inspector h2 { margin-top: 3px; font-size: 18px; font-weight: var(--weight-semibold); }
+.object-inspector__subtitle { margin-top: 2px !important; color: var(--color-text-secondary); font-size: var(--type-meta); }
+.object-inspector header > button {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: var(--color-text-muted);
+  background: transparent;
+  cursor: pointer;
+}
+.object-inspector header svg,
+.object-inspector footer svg { width: 14px; }
+.object-inspector dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px 16px;
+  margin-top: 16px;
+  padding: 14px 0;
+  border-top: var(--border-hairline);
+  border-bottom: var(--border-hairline);
+}
+.object-inspector dl div { display: grid; gap: 2px; }
+.object-inspector dt { color: var(--color-text-muted); font-size: 10px; }
+.object-inspector dd { font-size: 13px; line-height: 1.35; }
+.object-inspector footer { gap: 10px; align-items: center; margin-top: 13px; }
+.object-inspector footer > span { color: var(--color-text-muted); font-size: 10px; white-space: nowrap; }
+.object-inspector footer button {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  color: var(--color-text-primary);
+  background: transparent;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: var(--weight-semibold);
+  white-space: nowrap;
+}
+.object-inspector button:focus-visible { outline: 2px solid var(--color-text-primary); outline-offset: 2px; }
+
+.hero-composer__form { position: relative; }
+.hero-composer--listening .hero-composer__form { border-color: rgba(38, 50, 56, 0.22); background: rgba(246, 245, 241, 0.9); }
+.hero-composer--listening input { opacity: 0.72; }
+.hero-composer--malayalam input,
+.hero-answer[lang='ml'],
+.hero-composer__language [lang='ml'] { font-family: var(--font-regional); }
+
+.hero-composer__voice-current {
+  position: absolute;
+  right: 88px;
+  bottom: 8px;
+  height: 14px;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  pointer-events: none;
+}
+.hero-composer__voice-current i {
+  width: 1px;
+  height: 5px;
+  display: block;
+  border-radius: 1px;
+  background: rgba(38, 50, 56, 0.46);
+  animation: seawatch-voice-current 900ms var(--ease-in-out) infinite alternate;
+}
+.hero-composer__voice-current i:nth-child(2),
+.hero-composer__voice-current i:nth-child(4) { animation-delay: 120ms; }
+.hero-composer__voice-current i:nth-child(3) { animation-delay: 240ms; }
+
+.hero-composer__suggestions {
+  width: calc(100% - 92px);
+  display: flex;
+  gap: 5px;
+  margin: 8px 0 0 12px;
+  pointer-events: auto;
+}
+.hero-composer__suggestion { min-width: 0; display: block; margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hero-composer__language {
+  position: absolute;
+  top: 61px;
+  right: 8px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  color: rgba(38, 50, 56, 0.46);
+  font-size: 10px;
+  pointer-events: auto;
+}
+.hero-composer__language button { padding: 2px; border: 0; color: inherit; background: transparent; cursor: pointer; font-size: inherit; }
+.hero-composer__language button[aria-pressed='true'] { color: var(--color-text-primary); font-weight: var(--weight-semibold); }
+
+.agent-node-shell { transition: opacity var(--motion-slow) var(--ease-out); }
+.agent-dock { bottom: 142px; }
+.agent-dock--active .agent-node-shell--irrelevant { opacity: 0.42; }
+.vessel-marker { cursor: pointer; }
+.vessel-marker--selected .vessel-marker__hull { fill: var(--color-surface-raised); stroke: var(--color-text-primary); stroke-width: 1.8; transform: scale(1.06); }
+.vessel-marker.vessel-marker--selected .vessel-tooltip { opacity: 0; }
+.seawatch-map--visual-cyclone .cyclone-system { opacity: 1; }
+.seawatch-map--visual-cyclone .cyclone-system__forecast { opacity: 0.96; }
+
+.intelligence-zone--interactive { cursor: pointer; outline: none; pointer-events: all; }
+.intelligence-zone--interactive:hover .intelligence-zone__line,
+.intelligence-zone--interactive:focus-visible .intelligence-zone__line,
+.intelligence-zone--selected .intelligence-zone__line { stroke: rgba(246, 245, 241, 0.96); stroke-width: 1.5; }
+.intelligence-zone--interactive:focus-visible .intelligence-zone__core { filter: brightness(1.05); }
+
+@media (max-width: 900px) {
+  .object-inspector--vessel { left: 300px; }
+  .object-inspector--fishing-zone { left: 46%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-composer__voice-current i { animation: none; }
+}

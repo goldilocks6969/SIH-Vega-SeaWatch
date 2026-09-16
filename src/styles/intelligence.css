@@ -1,0 +1,300 @@
+.hero-intelligence {
+  pointer-events: none;
+}
+
+.intelligence-zone,
+.intelligence-condition,
+.intelligence-measurements,
+.intelligence-winds,
+.intelligence-caution,
+.intelligence-source-ticks {
+  opacity: 0;
+  transition:
+    opacity var(--motion-intelligence-recede) var(--ease-out),
+    filter var(--motion-intelligence-recede) var(--ease-out);
+}
+
+.intelligence-zone__halo,
+.intelligence-zone__fill,
+.intelligence-zone__core,
+.intelligence-condition__fill,
+.intelligence-caution__fill {
+  stroke: none;
+}
+
+.intelligence-zone__halo {
+  fill: rgba(80, 132, 112, 0.08);
+  filter: blur(15px);
+  transform: scale(1.035);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.intelligence-zone__fill {
+  fill: var(--color-opportunity-field);
+}
+
+.intelligence-zone__core {
+  fill: var(--color-opportunity-core);
+}
+
+.intelligence-zone__line,
+.intelligence-condition__line,
+.intelligence-caution__line {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.intelligence-zone__line {
+  stroke: rgba(230, 243, 236, 0.78);
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  stroke-width: 1.1;
+}
+
+.intelligence-zone__label path {
+  fill: none;
+  stroke: rgba(38, 50, 56, 0.42);
+  stroke-width: 0.8;
+  vector-effect: non-scaling-stroke;
+}
+
+.intelligence-zone__label text,
+.intelligence-caution__label text,
+.marine-measurement text {
+  fill: rgba(38, 50, 56, 0.78);
+  font-family: var(--font-sans);
+}
+
+.intelligence-zone__label text {
+  font-size: 11px;
+  font-weight: var(--weight-semibold);
+}
+
+.intelligence-condition__fill {
+  fill: rgba(232, 241, 239, 0.09);
+  filter: blur(7px);
+}
+
+.intelligence-condition__line {
+  stroke: rgba(229, 242, 240, 0.3);
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  stroke-width: 0.75;
+}
+
+.intelligence-condition--2 {
+  opacity: 0.7;
+}
+
+.marine-measurement circle {
+  fill: rgba(241, 246, 242, 0.9);
+}
+
+.marine-measurement path {
+  fill: none;
+  stroke: rgba(38, 50, 56, 0.36);
+  stroke-width: 0.75;
+  vector-effect: non-scaling-stroke;
+}
+
+.marine-measurement__value {
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--weight-semibold);
+}
+
+.marine-measurement__label {
+  fill: rgba(38, 50, 56, 0.55) !important;
+  font-size: 9.5px;
+  font-weight: var(--weight-medium);
+}
+
+.intelligence-wind path {
+  fill: none;
+  stroke: rgba(235, 245, 242, 0.72);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 0.9;
+  vector-effect: non-scaling-stroke;
+}
+
+.intelligence-caution__fill {
+  fill: rgba(178, 126, 56, 0.09);
+  filter: blur(6px);
+}
+
+.intelligence-caution__line {
+  stroke: rgba(224, 197, 151, 0.62);
+  stroke-dasharray: 1.5 4;
+  stroke-width: 0.9;
+}
+
+.intelligence-caution__label circle {
+  fill: var(--color-caution);
+}
+
+.intelligence-caution__label text {
+  font-size: 10px;
+  font-weight: var(--weight-medium);
+}
+
+.intelligence-source-ticks circle {
+  fill: rgba(246, 245, 241, 0.86);
+  stroke: rgba(38, 50, 56, 0.18);
+  stroke-width: 0.6;
+}
+
+.intelligence-source-ticks path {
+  fill: none;
+  stroke: var(--color-opportunity);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 0.8;
+}
+
+.hero-intelligence--has-base .intelligence-zone,
+.hero-intelligence--area.hero-intelligence--has-base .intelligence-condition--1 {
+  opacity: 1;
+}
+
+.hero-intelligence--has-base .intelligence-zone__line {
+  animation: seawatch-contour-draw 850ms var(--ease-out) both;
+}
+
+.hero-intelligence--has-base .intelligence-zone__fill {
+  animation: seawatch-field-emerge 900ms var(--ease-out) 100ms both;
+}
+
+.hero-intelligence--has-base .intelligence-zone__core,
+.hero-intelligence--has-base .intelligence-zone__label {
+  animation: seawatch-field-emerge 720ms var(--ease-out) 250ms both;
+}
+
+.hero-intelligence--has-expanded .intelligence-condition,
+.hero-intelligence--has-expanded .intelligence-winds,
+.hero-intelligence--has-expanded .intelligence-measurements {
+  opacity: 1;
+}
+
+.hero-intelligence--has-expanded .intelligence-condition__line {
+  animation: seawatch-contour-draw 950ms var(--ease-out) both;
+}
+
+.hero-intelligence--has-expanded .intelligence-condition__fill {
+  animation: seawatch-field-emerge 850ms var(--ease-out) 80ms both;
+}
+
+.marine-measurement,
+.intelligence-wind,
+.intelligence-source-ticks > g {
+  opacity: 0;
+}
+
+.hero-intelligence--has-expanded .marine-measurement {
+  animation: seawatch-field-emerge 700ms var(--ease-out) both;
+}
+
+.hero-intelligence--has-expanded .marine-measurement:nth-child(2) { animation-delay: 130ms; }
+.hero-intelligence--has-expanded .marine-measurement:nth-child(3) { animation-delay: 260ms; }
+.hero-intelligence--has-expanded .marine-measurement:nth-child(4) { animation-delay: 390ms; }
+
+.hero-intelligence--has-expanded .intelligence-wind {
+  animation: seawatch-wind-resolve 420ms var(--ease-out) both;
+}
+
+.hero-intelligence--has-expanded .intelligence-wind:nth-child(2) { animation-delay: 80ms; }
+.hero-intelligence--has-expanded .intelligence-wind:nth-child(3) { animation-delay: 160ms; }
+.hero-intelligence--has-expanded .intelligence-wind:nth-child(4) { animation-delay: 240ms; }
+.hero-intelligence--has-expanded .intelligence-wind:nth-child(5) { animation-delay: 320ms; }
+.hero-intelligence--has-expanded .intelligence-wind:nth-child(6) { animation-delay: 400ms; }
+.hero-intelligence--has-expanded .intelligence-wind:nth-child(7) { animation-delay: 480ms; }
+
+.hero-intelligence--has-safety .intelligence-caution {
+  opacity: 1;
+  animation: seawatch-field-emerge 780ms var(--ease-out) both;
+}
+
+.hero-intelligence--has-peak .intelligence-source-ticks {
+  opacity: 1;
+}
+
+.hero-intelligence--has-peak .intelligence-source-ticks > g {
+  animation: seawatch-field-emerge 320ms var(--ease-out) both;
+}
+
+.hero-intelligence--has-peak .intelligence-source-ticks > g:nth-child(2) { animation-delay: 90ms; }
+.hero-intelligence--has-peak .intelligence-source-ticks > g:nth-child(3) { animation-delay: 180ms; }
+.hero-intelligence--has-peak .intelligence-source-ticks > g:nth-child(4) { animation-delay: 270ms; }
+
+.hero-intelligence--settled .intelligence-zone {
+  opacity: 0.96;
+}
+
+.hero-intelligence--final .intelligence-zone {
+  animation: seawatch-zone-final-settle 620ms var(--ease-out) both;
+}
+
+.hero-intelligence--settled .intelligence-condition {
+  opacity: 0.08;
+  filter: opacity(0.12);
+  transition-delay: 100ms;
+  transition-duration: 550ms;
+}
+
+.hero-intelligence--settled .intelligence-measurements,
+.hero-intelligence--settled .intelligence-source-ticks {
+  opacity: 0;
+  filter: opacity(0);
+  transition-delay: 50ms;
+  transition-duration: 400ms;
+}
+
+.hero-intelligence--settled .intelligence-winds {
+  opacity: 0.13;
+  filter: opacity(0.16);
+  transition-duration: 350ms;
+}
+
+.hero-intelligence--settled .intelligence-wind:nth-child(even) {
+  opacity: 0;
+}
+
+.hero-intelligence--settled .intelligence-caution {
+  opacity: 0.52;
+  transition-delay: 100ms;
+  transition-duration: 550ms;
+}
+
+.hero-intelligence--settled .intelligence-caution__label {
+  opacity: 0;
+  filter: opacity(0);
+}
+
+.seawatch-map--reduced-motion .hero-intelligence--has-expanded .marine-measurement,
+.seawatch-map--reduced-motion .hero-intelligence--has-expanded .intelligence-wind,
+.seawatch-map--reduced-motion .hero-intelligence--has-peak .intelligence-source-ticks > g {
+  opacity: 1;
+}
+
+.seawatch-map--reduced-motion .hero-intelligence--has-base .intelligence-zone__line,
+.seawatch-map--reduced-motion .hero-intelligence--has-expanded .intelligence-condition__line {
+  stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-intelligence * {
+    animation: none !important;
+  }
+
+  .hero-intelligence--has-expanded .marine-measurement,
+  .hero-intelligence--has-expanded .intelligence-wind,
+  .hero-intelligence--has-peak .intelligence-source-ticks > g {
+    opacity: 1;
+  }
+
+  .hero-intelligence--has-base .intelligence-zone__line,
+  .hero-intelligence--has-expanded .intelligence-condition__line {
+    stroke-dashoffset: 0;
+  }
+}

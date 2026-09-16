@@ -1,0 +1,109 @@
+.ocean-selection {
+  pointer-events: none;
+}
+
+.ocean-selection__water-response,
+.ocean-ripple,
+.ocean-selection__zone,
+.ocean-selection__point {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.ocean-selection__water-response {
+  fill: var(--color-selection-water-response);
+  opacity: 0;
+  animation: seawatch-water-response var(--motion-selection-water-response)
+    var(--ease-ripple) both;
+  will-change: opacity, transform;
+}
+
+.ocean-ripple {
+  fill: none;
+  stroke: var(--color-selection-ripple);
+  vector-effect: non-scaling-stroke;
+  will-change: opacity, transform;
+}
+
+.ocean-ripple--primary {
+  stroke-dasharray: 88 16 126 70;
+  stroke-width: 1.15;
+}
+
+.ocean-ripple--secondary {
+  stroke: var(--color-selection-ripple-soft);
+  stroke-dasharray: 52 28 104 116;
+  stroke-width: 0.85;
+}
+
+.ocean-selection__zone {
+  fill: rgba(246, 245, 241, 0.045);
+  stroke: var(--color-selection-zone-stroke);
+  stroke-dasharray: 74 18 96 30;
+  stroke-width: 0.8;
+  vector-effect: non-scaling-stroke;
+  animation: seawatch-selection-settle var(--motion-slow) var(--ease-out)
+    var(--motion-selection-settle-delay) both;
+}
+
+.ocean-selection__point {
+  fill: var(--color-selection-point);
+}
+
+.ocean-selection__action-wrap {
+  overflow: visible;
+  opacity: 0;
+  pointer-events: all;
+  animation: seawatch-selection-action var(--motion-base) var(--ease-out)
+    var(--motion-selection-action-delay) both;
+}
+
+.ocean-selection__action {
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--color-selection-action-border);
+  border-radius: var(--radius-floating);
+  color: var(--color-text-primary);
+  background: var(--color-selection-action-surface);
+  box-shadow: var(--shadow-raised);
+  cursor: pointer;
+  font-size: var(--type-meta);
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    background-color var(--motion-fast) var(--ease-out),
+    border-color var(--motion-fast) var(--ease-out),
+    transform var(--motion-fast) var(--ease-out);
+}
+
+.ocean-selection__action:hover {
+  border-color: var(--color-border-interactive);
+  background: var(--color-surface-raised);
+  transform: translateY(-1px);
+}
+
+.ocean-selection__action:active {
+  transform: translateY(0);
+}
+
+.ocean-selection__action:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ocean-selection__water-response,
+  .ocean-ripple {
+    display: none;
+  }
+
+  .ocean-selection__zone,
+  .ocean-selection__point,
+  .ocean-selection__action-wrap {
+    opacity: 1;
+    transform: none;
+  }
+}

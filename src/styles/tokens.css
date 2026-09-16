@@ -1,0 +1,151 @@
+:root {
+  color-scheme: light;
+
+  --font-sans: 'Inter Variable', Inter, 'Noto Sans', 'Noto Sans Malayalam',
+    'Noto Sans Devanagari', system-ui, sans-serif;
+  --font-regional: 'Noto Sans Malayalam', 'Inter Variable', Inter, system-ui,
+    sans-serif;
+
+  --type-wordmark: 1.5625rem;
+  --type-answer: 1.75rem;
+  --type-heading: 1rem;
+  --type-ui: 0.9375rem;
+  --type-measurement: 1.125rem;
+  --type-agent: 0.75rem;
+  --type-meta: 0.75rem;
+  --type-map: 0.8125rem;
+  --type-map-region: 1.25rem;
+
+  --weight-regular: 400;
+  --weight-book: 450;
+  --weight-medium: 500;
+  --weight-wordmark: 550;
+  --weight-wordmark-italic: 475;
+  --weight-semibold: 600;
+
+  --leading-tight: 1.2;
+  --leading-heading: 1.3;
+  --leading-ui: 1.5;
+  --leading-copy: 1.6;
+
+  --color-paper: #f6f5f1;
+  --color-surface-raised: #fbfaf7;
+  --color-surface-secondary: #eeece6;
+  --color-land: #deded9;
+  --color-water: #78aabd;
+  --color-water-deep: #5f92aa;
+  --color-water-shallow: #9bc0c7;
+  --color-water-haze: rgba(251, 250, 247, 0.035);
+  --color-text-primary: #263238;
+  --color-text-secondary: #68777c;
+  --color-text-muted: #8a9699;
+  --color-border-hairline: rgba(38, 50, 56, 0.1);
+  --color-border-interactive: rgba(38, 50, 56, 0.2);
+  --color-coastline: rgba(38, 50, 56, 0.22);
+  --color-map-label-halo: rgba(246, 245, 241, 0.4);
+  --color-water-label-halo: rgba(120, 170, 189, 0.5);
+  --color-map-label-sea: rgba(38, 50, 56, 0.31);
+  --color-control-surface: rgba(251, 250, 247, 0.92);
+  --color-marker-surface: rgba(251, 250, 247, 0.88);
+  --color-marker-stroke: rgba(38, 50, 56, 0.26);
+  --color-vessel-light: rgba(251, 250, 247, 0.9);
+  --color-vessel-neutral: rgba(38, 50, 56, 0.72);
+  --color-boundary: rgba(246, 245, 241, 0.26);
+  --color-weather-field: rgba(238, 236, 230, 0.09);
+  --color-weather-arm: rgba(246, 245, 241, 0.32);
+  --color-cyclone-core-soft: rgba(201, 108, 98, 0.18);
+  --color-tooltip-surface: rgba(251, 250, 247, 0.96);
+  --color-selection-ripple: rgba(246, 245, 241, 0.74);
+  --color-selection-ripple-soft: rgba(246, 245, 241, 0.54);
+  --color-selection-water-response: rgba(246, 245, 241, 0.28);
+  --color-selection-zone-fill: rgba(246, 245, 241, 0.055);
+  --color-selection-zone-stroke: rgba(246, 245, 241, 0.36);
+  --color-selection-point: rgba(38, 50, 56, 0.78);
+  --color-selection-action-surface: rgba(251, 250, 247, 0.9);
+  --color-selection-action-border: rgba(38, 50, 56, 0.14);
+  --color-agent-surface: rgba(251, 250, 247, 0.72);
+  --color-agent-surface-strong: rgba(251, 250, 247, 0.92);
+  --color-agent-popover-surface: rgba(251, 250, 247, 0.97);
+  --color-agent-state-surface: #fbfaf7;
+  --color-agent-border: rgba(38, 50, 56, 0.13);
+  --color-agent-border-strong: rgba(38, 50, 56, 0.28);
+  --color-agent-icon: rgba(38, 50, 56, 0.67);
+  --color-agent-label: rgba(38, 50, 56, 0.66);
+  --color-agent-working: rgba(38, 50, 56, 0.66);
+  --color-agent-complete-border: rgba(95, 136, 111, 0.48);
+  --color-agent-attention-border: rgba(177, 129, 62, 0.5);
+  --color-agent-connection: rgba(246, 245, 241, 0.62);
+  --color-composer-surface: rgba(251, 250, 247, 0.94);
+  --color-answer-surface: rgba(246, 245, 241, 0.84);
+  --color-intelligence-zone: rgba(95, 136, 111, 0.2);
+  --color-intelligence-zone-core: rgba(95, 136, 111, 0.12);
+  --color-intelligence-line: rgba(246, 245, 241, 0.68);
+  --color-intelligence-condition: rgba(238, 236, 230, 0.13);
+  --color-intelligence-caution: rgba(177, 129, 62, 0.15);
+  --color-ocean-current: rgba(91, 153, 169, 0.06);
+  --color-opportunity-field: rgba(82, 133, 112, 0.18);
+  --color-opportunity-core: rgba(72, 121, 100, 0.18);
+  --color-cyclone-band: rgba(239, 243, 238, 0.46);
+  --color-context-surface: rgba(246, 245, 241, 0.95);
+  --color-agent-idle-surface: rgba(251, 250, 247, 0.34);
+  --color-opportunity: #5f886f;
+  --color-caution: #b1813e;
+  --color-critical: #c96c62;
+  --color-operational-influence: rgba(177, 129, 62, 0.105);
+  --color-operational-impact: rgba(201, 108, 98, 0.095);
+  --color-operational-corridor: rgba(239, 243, 238, 0.09);
+  --color-operational-line: rgba(246, 245, 241, 0.74);
+
+  --border-hairline: 1px solid var(--color-border-hairline);
+  --shadow-raised: 0 10px 30px rgba(38, 50, 56, 0.07);
+  --shadow-floating: 0 14px 36px rgba(38, 50, 56, 0.1);
+  --shadow-wordmark: 0 1px 12px rgba(251, 250, 247, 0.18);
+  --shadow-agent: 0 6px 16px rgba(38, 50, 56, 0.055);
+  --shadow-context: 0 18px 48px rgba(38, 50, 56, 0.11);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  --radius-small: 0.5rem;
+  --radius-medium: 0.75rem;
+  --radius-large: 1.125rem;
+  --radius-floating: 1.375rem;
+  --radius-circle: 50%;
+
+  --motion-instant: 120ms;
+  --motion-fast: 180ms;
+  --motion-base: 240ms;
+  --motion-slow: 450ms;
+  --motion-ripple-primary: 1550ms;
+  --motion-ripple-secondary: 1700ms;
+  --motion-environment: 18s;
+  --motion-environment-long: 27s;
+  --motion-cyclone: 32s;
+  --motion-agent-working: 2.4s;
+  --motion-agent-collaboration: 780ms;
+  --motion-vessel-a: 18s;
+  --motion-vessel-b: 23s;
+  --motion-vessel-c: 29s;
+  --motion-weather-field: 41s;
+  --motion-ripple-primary-delay: 72ms;
+  --motion-ripple-secondary-delay: 250ms;
+  --motion-selection-water-response: 1100ms;
+  --motion-selection-settle-delay: 620ms;
+  --motion-selection-action-delay: 740ms;
+  --motion-intelligence-resolve: 900ms;
+  --motion-intelligence-recede: 650ms;
+  --motion-answer-reveal: 360ms;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-environment: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  --ease-ripple: cubic-bezier(0.16, 0.62, 0.18, 1);
+}

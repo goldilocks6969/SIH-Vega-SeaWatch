@@ -1,0 +1,432 @@
+.map-geography__boundary {
+  fill: none;
+  stroke: var(--color-boundary);
+  stroke-dasharray: 5 10;
+  stroke-linecap: round;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.port-marker {
+  color: var(--color-text-secondary);
+  outline: none;
+  animation: seawatch-first-load-up 420ms var(--ease-out) 260ms both;
+}
+
+.port-marker__surface {
+  fill: var(--color-marker-surface);
+  stroke: var(--color-marker-stroke);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  transition:
+    fill var(--motion-fast) var(--ease-out),
+    stroke var(--motion-fast) var(--ease-out);
+}
+
+.port-marker__icon {
+  color: currentColor;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  transition: color var(--motion-fast) var(--ease-out);
+}
+
+.port-marker__label {
+  fill: var(--color-text-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--type-agent);
+  font-weight: var(--weight-medium);
+  paint-order: stroke;
+  cursor: default;
+  pointer-events: visiblePainted;
+  stroke: var(--color-map-label-halo);
+  stroke-linejoin: round;
+  stroke-width: 2px;
+}
+
+.port-marker--primary {
+  color: var(--color-text-primary);
+}
+
+.port-marker--primary .port-marker__label {
+  fill: var(--color-text-primary);
+  font-size: var(--type-map);
+  font-weight: var(--weight-semibold);
+}
+
+.port-marker:hover .port-marker__surface,
+.port-marker:focus-visible .port-marker__surface {
+  fill: var(--color-surface-raised);
+  stroke: var(--color-text-secondary);
+}
+
+.port-marker:focus-visible .port-marker__surface {
+  stroke-width: 2;
+}
+
+.vessel-marker {
+  color: var(--color-vessel-neutral);
+  outline: none;
+  animation: seawatch-first-load-up 420ms var(--ease-out) 260ms both;
+}
+
+.vessel-marker__hit-area {
+  fill: transparent;
+  pointer-events: all;
+}
+
+.vessel-marker__drift {
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.vessel-marker__hull {
+  fill: var(--color-vessel-light);
+  stroke: currentColor;
+  stroke-width: 1.3;
+  vector-effect: non-scaling-stroke;
+  transition:
+    fill var(--motion-fast) var(--ease-out),
+    stroke var(--motion-fast) var(--ease-out),
+    transform var(--motion-fast) var(--ease-out);
+}
+
+.vessel-marker__deck {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 0.8;
+  vector-effect: non-scaling-stroke;
+}
+
+.vessel-marker--fishing {
+  color: var(--color-opportunity);
+}
+
+.vessel-marker--service {
+  color: var(--color-text-primary);
+}
+
+.vessel-marker:hover .vessel-marker__hull,
+.vessel-marker:focus-visible .vessel-marker__hull {
+  fill: var(--color-surface-raised);
+  stroke-width: 1.7;
+  transform: scale(1.04);
+  transform-origin: center;
+}
+
+.vessel-marker:focus-visible .vessel-marker__hull {
+  stroke: var(--color-text-primary);
+}
+
+.vessel-tooltip {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--motion-fast) var(--ease-out);
+}
+
+.vessel-marker:hover .vessel-tooltip,
+.vessel-marker:focus-visible .vessel-tooltip {
+  opacity: 1;
+}
+
+.vessel-tooltip rect {
+  fill: var(--color-tooltip-surface);
+  stroke: var(--color-marker-stroke);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.vessel-tooltip text {
+  fill: var(--color-text-secondary);
+  font-family: var(--font-sans);
+  font-size: var(--type-meta);
+  font-weight: var(--weight-regular);
+}
+
+.vessel-tooltip__name {
+  fill: var(--color-text-primary) !important;
+  font-size: var(--type-meta) !important;
+  font-weight: var(--weight-semibold) !important;
+}
+
+.cyclone-system__field-drift,
+.cyclone-system__rotation {
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.cyclone-system {
+  animation: seawatch-first-load-up 460ms var(--ease-out) 340ms both;
+}
+
+.cyclone-system__hit-area {
+  fill: transparent;
+  cursor: default;
+  pointer-events: all;
+}
+
+.cyclone-system__field {
+  fill: var(--color-weather-field);
+  filter: blur(12px);
+}
+
+.cyclone-system__arm {
+  fill: none;
+  stroke: var(--color-weather-arm);
+  stroke-linecap: round;
+  stroke-width: 4;
+  filter: blur(0.35px);
+}
+
+.cyclone-system__arm--outer {
+  opacity: 0.74;
+  stroke-width: 5.5;
+}
+
+.cyclone-system__arm--inner {
+  opacity: 0.86;
+  stroke-width: 3.2;
+}
+
+.cyclone-system__direction {
+  fill: none;
+  stroke: var(--color-weather-arm);
+  stroke-dasharray: 3 8;
+  stroke-linecap: round;
+  stroke-width: 1;
+  opacity: 0.48;
+}
+
+.cyclone-system__core-soft {
+  fill: var(--color-cyclone-core-soft);
+}
+
+.cyclone-system__core {
+  fill: var(--color-critical);
+}
+
+.cyclone-label text {
+  fill: var(--color-text-primary);
+  font-family: var(--font-sans);
+  paint-order: stroke;
+  stroke: var(--color-water-label-halo);
+  stroke-linejoin: round;
+  stroke-width: 3px;
+}
+
+.cyclone-label__title {
+  font-size: var(--type-agent);
+  font-weight: var(--weight-semibold);
+}
+
+.cyclone-label__status {
+  fill: var(--color-text-secondary) !important;
+  font-size: var(--type-meta);
+  font-style: italic;
+  font-weight: var(--weight-book);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vessel-marker__drift,
+  .cyclone-system__field-drift,
+  .cyclone-system__rotation {
+    will-change: auto;
+  }
+}
+
+/* Phase 6.5: layered meteorological object */
+.cyclone-system {
+  color: var(--color-text-primary);
+  cursor: pointer;
+  outline: none;
+  opacity: 0.9;
+  transition: opacity var(--motion-slow) var(--ease-out);
+}
+
+.seawatch-map--understanding .cyclone-system,
+.seawatch-map--gathering .cyclone-system,
+.seawatch-map--reviewing .cyclone-system,
+.seawatch-map--synthesizing .cyclone-system {
+  opacity: 0.58;
+}
+
+.seawatch-map--answered .cyclone-system {
+  opacity: 0.7;
+}
+
+.cyclone-system__hit-area {
+  cursor: pointer;
+}
+
+.cyclone-system__forecast {
+  opacity: 0.54;
+  transition: opacity var(--motion-fast) var(--ease-out);
+}
+
+.cyclone-system__forecast-corridor {
+  fill: rgba(238, 236, 230, 0.065);
+}
+
+.cyclone-system__forecast-line {
+  fill: none;
+  stroke: rgba(246, 245, 241, 0.3);
+  stroke-dasharray: 3 8;
+  stroke-linecap: round;
+  stroke-width: 0.9;
+  vector-effect: non-scaling-stroke;
+}
+
+.cyclone-system__forecast circle {
+  fill: rgba(246, 245, 241, 0.7);
+  stroke: rgba(38, 50, 56, 0.14);
+  stroke-width: 0.6;
+}
+
+.cyclone-system__outer-drift,
+.cyclone-system__inner-rotation {
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.cyclone-system__outer-drift {
+  animation: seawatch-cyclone-outer 44s linear infinite;
+}
+
+.cyclone-system__inner-rotation {
+  animation: seawatch-cyclone-inner 29s linear infinite;
+}
+
+.cyclone-system__cloud-field {
+  fill: rgba(235, 239, 235, 0.17);
+  filter: blur(20px);
+}
+
+.cyclone-system__cloud-lobe {
+  fill: rgba(242, 244, 239, 0.18);
+  filter: blur(13px);
+}
+
+.cyclone-system__cloud-lobe--b {
+  fill: rgba(242, 244, 239, 0.145);
+}
+
+.cyclone-system__cloud-lobe--c {
+  fill: rgba(242, 244, 239, 0.115);
+}
+
+.cyclone-system__outer-band,
+.cyclone-system__spiral,
+.cyclone-system__inflow {
+  fill: none;
+  stroke: var(--color-cyclone-band);
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.cyclone-system__outer-band {
+  filter: blur(4px);
+  opacity: 0.38;
+  stroke-width: 10;
+}
+
+.cyclone-system__outer-band--b {
+  opacity: 0.3;
+  stroke-width: 8;
+}
+
+.cyclone-system__spiral {
+  filter: blur(2.8px);
+  opacity: 0.44;
+  stroke-width: 7;
+}
+
+.cyclone-system__spiral--b {
+  opacity: 0.36;
+  stroke-width: 5.8;
+}
+
+.cyclone-system__spiral--c {
+  stroke: rgba(246, 245, 241, 0.42);
+  opacity: 0.3;
+  stroke-width: 4.2;
+}
+
+.cyclone-system__inflow {
+  opacity: 0.42;
+  stroke-dasharray: 2 7;
+  stroke-width: 1;
+}
+
+.cyclone-system__eye-soft {
+  fill: rgba(201, 108, 98, 0.115);
+  stroke: rgba(246, 245, 241, 0.24);
+  stroke-width: 1;
+  transition:
+    fill var(--motion-fast) var(--ease-out),
+    stroke var(--motion-fast) var(--ease-out);
+}
+
+.cyclone-system__eye {
+  fill: rgba(201, 108, 98, 0.78);
+}
+
+.cyclone-system:hover .cyclone-system__eye-soft,
+.cyclone-system:focus-visible .cyclone-system__eye-soft,
+.cyclone-system--selected .cyclone-system__eye-soft {
+  fill: rgba(201, 108, 98, 0.22);
+  stroke: rgba(246, 245, 241, 0.74);
+}
+
+.cyclone-system:hover .cyclone-system__forecast,
+.cyclone-system:focus-visible .cyclone-system__forecast,
+.cyclone-system--selected .cyclone-system__forecast {
+  opacity: 0.86;
+}
+
+.cyclone-label {
+  opacity: 0.82;
+  transition:
+    opacity var(--motion-fast) var(--ease-out),
+    translate var(--motion-fast) var(--ease-out);
+}
+
+.cyclone-system:hover .cyclone-label,
+.cyclone-system:focus-visible .cyclone-label,
+.cyclone-system--selected .cyclone-label {
+  opacity: 1;
+  translate: 3px 0;
+}
+
+.cyclone-label text {
+  paint-order: normal;
+  stroke: none;
+}
+
+.cyclone-label__title {
+  letter-spacing: -0.01em;
+}
+
+.vessel-tooltip {
+  transform-origin: left center;
+  transition:
+    opacity var(--motion-fast) var(--ease-out),
+    translate var(--motion-fast) var(--ease-out);
+  translate: 0 3px;
+}
+
+.vessel-marker:hover .vessel-tooltip,
+.vessel-marker:focus-visible .vessel-tooltip {
+  translate: 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cyclone-system__outer-drift,
+  .cyclone-system__inner-rotation {
+    animation: none;
+    transform: none;
+  }
+}

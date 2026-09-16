@@ -1,0 +1,383 @@
+.disaster-intelligence { pointer-events: none; }
+
+.disaster-track,
+.disaster-marine-impact,
+.disaster-coastal-exposure,
+.disaster-operations,
+.disaster-peak-evidence,
+.disaster-update-comparison,
+.disaster-review-label {
+  opacity: 0;
+  transition:
+    opacity var(--motion-intelligence-recede) var(--ease-out),
+    filter var(--motion-intelligence-recede) var(--ease-out);
+}
+
+.disaster-track__uncertainty {
+  fill: var(--color-operational-corridor);
+  filter: blur(2px);
+}
+
+.disaster-track__line,
+.disaster-impact-contour,
+.disaster-coastal-exposure__line,
+.disaster-update-comparison path {
+  fill: none;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.disaster-track__line {
+  stroke: var(--color-operational-line);
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  stroke-width: 1.15;
+}
+
+.disaster-track__position circle {
+  fill: rgba(246, 245, 241, 0.82);
+  stroke: rgba(38, 50, 56, 0.22);
+  stroke-width: 0.7;
+}
+
+.disaster-track__position--1 { opacity: 0.82; }
+.disaster-track__position--2 { opacity: 0.64; }
+.disaster-track__position--3 { opacity: 0.43; }
+
+.disaster-track text,
+.disaster-map-note text,
+.disaster-port-note text,
+.disaster-decision-window text,
+.disaster-vessel-note text,
+.disaster-peak-evidence text,
+.disaster-update-comparison text,
+.disaster-review-label {
+  fill: rgba(38, 50, 56, 0.7);
+  font-family: var(--font-sans);
+  font-size: 10.25px;
+  font-weight: var(--weight-medium);
+}
+
+.disaster-track__confidence,
+.disaster-map-note,
+.disaster-port-note,
+.disaster-decision-window,
+.disaster-vessel-note,
+.disaster-peak-evidence {
+  opacity: 0;
+}
+
+.disaster-track__confidence circle,
+.disaster-map-note circle,
+.disaster-decision-window circle,
+.disaster-peak-evidence > circle { fill: var(--color-caution); }
+
+.disaster-field { stroke: none; }
+.disaster-field--influence { fill: var(--color-operational-influence); filter: blur(8px); }
+.disaster-field--waves { fill: var(--color-operational-impact); filter: blur(5px); }
+.disaster-field--operations { fill: rgba(177, 129, 62, 0.07); filter: blur(7px); }
+
+.disaster-impact-contour {
+  stroke: rgba(235, 214, 177, 0.62);
+  stroke-dasharray: 3 8;
+  stroke-width: 0.9;
+}
+
+.disaster-wind-mark path {
+  fill: none;
+  stroke: rgba(239, 245, 241, 0.72);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 0.85;
+  vector-effect: non-scaling-stroke;
+}
+
+.disaster-coastal-exposure__halo,
+.disaster-coastal-exposure__line {
+  fill: none;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.disaster-coastal-exposure__halo {
+  stroke: rgba(201, 108, 98, 0.12);
+  stroke-width: 34;
+  filter: blur(9px);
+}
+
+.disaster-coastal-exposure__line {
+  stroke: rgba(217, 161, 119, 0.62);
+  stroke-dasharray: 2 7;
+  stroke-width: 1;
+}
+
+.disaster-port-note path,
+.disaster-vessel-note path,
+.disaster-peak-evidence path {
+  fill: none;
+  stroke: rgba(38, 50, 56, 0.32);
+  stroke-width: 0.75;
+  vector-effect: non-scaling-stroke;
+}
+
+.disaster-port-note__title,
+.disaster-vessel-note__title,
+.disaster-peak-evidence__title,
+.disaster-decision-window__title {
+  fill: var(--color-text-primary) !important;
+  font-weight: var(--weight-semibold) !important;
+}
+
+.disaster-vessel-note__ring {
+  fill: rgba(246, 245, 241, 0.035);
+  stroke: rgba(246, 245, 241, 0.74);
+  stroke-dasharray: 2 4;
+  stroke-width: 0.9;
+}
+
+.disaster-vessel-note--outside { opacity: 0.64; }
+
+.disaster-peak-evidence > circle {
+  stroke: rgba(246, 245, 241, 0.9);
+  stroke-width: 1.4;
+}
+
+.disaster-update-comparison__old {
+  stroke: rgba(246, 245, 241, 0.3);
+  stroke-dasharray: 3 9;
+  stroke-width: 1;
+}
+
+.disaster-update-comparison__new {
+  stroke: rgba(246, 245, 241, 0.82);
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  stroke-width: 1.2;
+}
+
+.disaster-review-label {
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.disaster-intelligence--has-track .disaster-track,
+.disaster-intelligence--forecast-update.disaster-intelligence--has-track .disaster-update-comparison {
+  opacity: 1;
+  animation: seawatch-field-emerge 760ms var(--ease-out) both;
+}
+
+.disaster-intelligence--has-track .disaster-track__line,
+.disaster-intelligence--forecast-update.disaster-intelligence--has-track .disaster-update-comparison__new {
+  animation: seawatch-contour-draw 1000ms var(--ease-out) both;
+}
+
+.disaster-intelligence--has-marine .disaster-marine-impact {
+  opacity: 1;
+  animation: seawatch-field-emerge 920ms var(--ease-out) both;
+}
+
+.disaster-intelligence--has-marine .marine-measurement {
+  opacity: 1;
+  animation: seawatch-field-emerge 680ms var(--ease-out) both;
+}
+
+.disaster-intelligence--has-exposure .disaster-coastal-exposure,
+.disaster-intelligence--has-exposure .disaster-operations {
+  opacity: 1;
+  animation: seawatch-field-emerge 820ms var(--ease-out) both;
+}
+
+.disaster-intelligence--has-exposure .disaster-map-note,
+.disaster-intelligence--has-exposure .disaster-port-note,
+.disaster-intelligence--has-exposure .disaster-decision-window,
+.disaster-intelligence--has-exposure .disaster-vessel-note {
+  opacity: 1;
+  animation: seawatch-field-emerge 620ms var(--ease-out) both;
+}
+
+.disaster-intelligence--has-peak .disaster-track__confidence,
+.disaster-intelligence--has-peak .disaster-peak-evidence {
+  opacity: 1;
+  animation: seawatch-field-emerge 540ms var(--ease-out) both;
+}
+
+.disaster-intelligence--settled .disaster-marine-impact { opacity: 0.38; }
+.disaster-intelligence--settled .disaster-track { opacity: 0.56; }
+.disaster-intelligence--settled .disaster-coastal-exposure { opacity: 0.66; }
+.disaster-intelligence--settled .disaster-operations { opacity: 0.48; }
+.disaster-intelligence--settled .disaster-peak-evidence { opacity: 0; }
+.disaster-intelligence--settled .disaster-wind-mark,
+.disaster-intelligence--settled .marine-measurement,
+.disaster-intelligence--settled .disaster-decision-window,
+.disaster-intelligence--settled .disaster-map-note--operations,
+.disaster-intelligence--settled .disaster-vessel-note--outside {
+  opacity: 0;
+  animation: none;
+}
+
+.disaster-intelligence--disaster-why.disaster-intelligence--settled .disaster-marine-impact,
+.disaster-intelligence--disaster-why.disaster-intelligence--settled .disaster-operations { opacity: 0.76; }
+.disaster-intelligence--disaster-why.disaster-intelligence--settled .marine-measurement {
+  opacity: 1;
+  animation: seawatch-field-emerge 420ms var(--ease-out) both;
+}
+
+.disaster-intelligence--affected-vessels .disaster-track { opacity: 0.18; }
+.disaster-intelligence--affected-vessels .disaster-marine-impact { opacity: 0.22; }
+.disaster-intelligence--affected-vessels .disaster-coastal-exposure { opacity: 0.34; }
+.disaster-intelligence--affected-vessels .disaster-operations,
+.disaster-intelligence--affected-vessels .disaster-review-label { opacity: 1; }
+.disaster-intelligence--affected-vessels .disaster-vessel-note { opacity: 1; }
+.disaster-intelligence--affected-vessels .disaster-vessel-note--outside { opacity: 0.48; }
+
+.disaster-intelligence--disaster-watch .disaster-track { opacity: 1; }
+.disaster-intelligence--disaster-watch .disaster-track__confidence { opacity: 1; }
+.disaster-intelligence--disaster-watch .disaster-marine-impact,
+.disaster-intelligence--disaster-watch .disaster-coastal-exposure { opacity: 0.34; }
+
+.operational-context {
+  position: absolute;
+  z-index: 3;
+  top: 34px;
+  left: 156px;
+  display: grid;
+  gap: 2px;
+  padding-left: 14px;
+  border-left: 1px solid rgba(38, 50, 56, 0.18);
+  color: var(--color-text-primary);
+  animation: seawatch-first-load-down 380ms var(--ease-out) both;
+}
+
+.operational-context span { font-size: 11px; font-weight: var(--weight-semibold); }
+.operational-context small { color: var(--color-text-muted); font-size: 9px; }
+
+.operational-alert {
+  position: absolute;
+  z-index: 5;
+  top: 25%;
+  left: 29%;
+  width: 264px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px 14px 13px 16px;
+  border: var(--border-hairline);
+  border-radius: 4px var(--radius-medium) var(--radius-medium) var(--radius-medium);
+  background: rgba(246, 245, 241, 0.92);
+  box-shadow: var(--shadow-context);
+  animation: seawatch-inspector-in 320ms var(--ease-out) both;
+}
+
+.operational-alert__anchor {
+  position: absolute;
+  top: 100%;
+  left: 26px;
+  width: 92px;
+  border-top: 1px solid rgba(246, 245, 241, 0.72);
+  transform: rotate(28deg);
+  transform-origin: left;
+}
+
+.operational-alert > div { display: grid; gap: 3px; }
+.operational-alert p { margin: 0; color: var(--color-caution); font-size: 9px; }
+.operational-alert strong { font-size: 13px; font-weight: var(--weight-semibold); }
+.operational-alert div button {
+  width: max-content;
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  margin-top: 5px;
+  padding: 0;
+  border: 0;
+  color: var(--color-text-primary);
+  background: transparent;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: var(--weight-semibold);
+}
+.operational-alert svg { width: 13px; height: 13px; }
+.operational-alert__close {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  margin: -5px -5px 0 auto;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: var(--color-text-muted);
+  background: transparent;
+  cursor: pointer;
+}
+.operational-alert button:focus-visible { outline: 2px solid var(--color-text-primary); outline-offset: 2px; }
+
+.hero-answer__decision-cue {
+  margin-top: 11px;
+  padding-top: 10px;
+  border-top: var(--border-hairline);
+  color: var(--color-text-primary);
+  font-size: 11px;
+  font-weight: var(--weight-semibold);
+  animation: seawatch-answer-in var(--motion-answer-reveal) var(--ease-out) both;
+}
+
+.hero-answer__footer {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-answer__action {
+  flex: 0 0 auto;
+  padding: 5px 8px;
+  border: 1px solid rgba(38, 50, 56, 0.14);
+  border-radius: var(--radius-small);
+  color: var(--color-text-primary);
+  background: rgba(251, 250, 247, 0.56);
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: var(--weight-semibold);
+}
+
+.hero-answer__action:hover { background: var(--color-surface-raised); }
+.hero-answer__action:focus-visible { outline: 2px solid var(--color-text-primary); outline-offset: 2px; }
+
+.seawatch-map--visual-disaster .hero-answer { width: min(492px, calc(100vw - 48px)); }
+.seawatch-map--visual-disaster .hero-answer__evidence-wrap > button { white-space: nowrap; }
+
+.vessel-marker--operational .vessel-marker__hull {
+  fill: rgba(251, 250, 247, 0.98);
+  stroke: var(--color-text-primary);
+  stroke-width: 1.8;
+  transform: scale(1.09);
+}
+
+.port-marker--operational .port-marker__surface {
+  fill: var(--color-surface-raised);
+  stroke: var(--color-caution);
+  stroke-width: 1.6;
+}
+
+.seawatch-map--visual-disaster .cyclone-system,
+.seawatch-map--visual-disaster-why .cyclone-system,
+.seawatch-map--visual-forecast-update .cyclone-system,
+.seawatch-map--visual-disaster-watch .cyclone-system { opacity: 1; }
+
+.seawatch-map--visual-disaster .cyclone-system__forecast,
+.seawatch-map--visual-disaster-why .cyclone-system__forecast,
+.seawatch-map--visual-forecast-update .cyclone-system__forecast,
+.seawatch-map--visual-disaster-watch .cyclone-system__forecast { opacity: 0.96; }
+
+@media (max-width: 1000px) {
+  .operational-context { top: 26px; left: 142px; }
+  .operational-alert { left: 23%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .disaster-intelligence *,
+  .operational-context,
+  .operational-alert { animation: none !important; transition: none !important; }
+}
