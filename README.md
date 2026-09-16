@@ -4,6 +4,8 @@
 
 SeaWatch is a map-first marine intelligence prototype centered on Kochi and the Kerala coast. It turns natural-language questions into visible geographic evidence, specialist collaboration, and concise operational recommendations directly on a living ocean canvas.
 
+Built by Team Vega for SIH 2026.
+
 ![SeaWatch disaster intelligence at its analytical peak](artifacts/phase-9/08-disaster-analytical-peak.png)
 
 ## The problem
